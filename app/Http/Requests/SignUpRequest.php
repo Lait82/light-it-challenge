@@ -6,7 +6,7 @@ use Illuminate\Foundation\Http\FormRequest;
 use Illuminate\Validation\Rules\File;
 use Illuminate\Validation\Rules\Password;
 
-class SignInRequest extends FormRequest
+class SignUpRequest extends FormRequest
 {
     public function rules(): array
     {

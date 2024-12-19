@@ -47,7 +47,6 @@ class AuthController extends Controller
 
             return Response::json(['token' => $authToken->plainTextToken], 204);
         } catch (Exception $e) {
-            dd($e);
             return Response::json('Internal Error', 500);
         }
     }
@@ -69,7 +68,19 @@ class AuthController extends Controller
                 $authToken = $user->createToken('auth-token', ['*'], now()->addDay());
                 return Response::json(['user_data' => $user, 'token' => $authToken->plainTextToken], 200);
         } catch (Exception $e) {
-            dd($e);
+            return Response::json('Internal Error', 500);
+        }
+    }
+
+    public function logOut(){
+        try {
+            $user = Auth::user();
+            
+            $user->tokens()->delete();
+
+            return Response::json(NULL, 200);
+        } catch (Exception $e) {
+
             return Response::json('Internal Error', 500);
         }
     }
@@ -78,7 +89,6 @@ class AuthController extends Controller
             $user = Auth::user();
             return Response::json(['status' => 'employed', 'hopefully' => 'please :\')', 'user' => $user], 200);        
         } catch (Exception $e) {
-            dd($e);
             return Response::json('Internal Error', 500);
         }
     }

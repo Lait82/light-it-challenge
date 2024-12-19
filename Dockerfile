@@ -46,8 +46,6 @@ COPY --chown=www:www . /var/www
 # Cambiar al usuario www
 USER www
 
-RUN php artisan queue:listen
-
 # Exponer el puerto 9000 para PHP-FPM
 EXPOSE 9000
 

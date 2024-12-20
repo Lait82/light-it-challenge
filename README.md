@@ -9,7 +9,7 @@
 
 ## About The project
 
-- Para instalar y deployear el proyecto cambiar con "chmod 777 init-config.sh" los permisos del script de inicio
+- Para instalar y deployear el proyecto cambiar con "chmod 777 init-config.sh" los permisos del script de inicio y correrlo con sudo "sudo bash init-script.sh", de otra forma va a fallar al listar los procesos con conflictos.
 
 - probar el proyecto con los test automatizados en el archivo BasicFlows
 

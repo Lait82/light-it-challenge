@@ -9,6 +9,8 @@
 
 ## About The project
 
-Para instalar y deployear el proyecto cambiar con "chmod 777 init-config.sh" los permisos del script de inicio
+- Para instalar y deployear el proyecto cambiar con "chmod 777 init-config.sh" los permisos del script de inicio
 
-probar el proyecto con los test automatizados en el archivo BasicFlows
+- probar el proyecto con los test automatizados en el archivo BasicFlows
+
+- Para ver el buzon de los mails dirigirse a localhost:8025 una vez levantado el docker

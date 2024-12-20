@@ -34,14 +34,26 @@ jobs:
           extensions: dom, curl, libxml, mbstring, zip, pcntl, pdo, sqlite, pdo_sqlite
           coverage: none
 
-      - name: Install Composer dependencies
-        run: composer install --prefer-dist --no-interaction --no-progress
-
       - name: Copy environment file
         run: cp .env.example .env
 
+      - name: Install Composer dependencies
+        run: composer install --prefer-dist --no-interaction --no-progress
+
+      - name: Update composer deps
+      - run: composer update
+
+      - name: create needed tables
+      - run: php artisan migrate
+      
       - name: Generate app key
         run: php artisan key:generate
+
+      - name: cache configurations
+      - run: php artisan config:cache
+
+      - name: create needed tables x2
+      - run: php artisan migrate
 
       - name: Execute tests
         run: vendor/bin/phpunit
